@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import MyOracula from "./MyOracula";
 import Friends from "./Friends";
+import Auth from "./Auth";
 
 function Router() {
   return (
@@ -11,10 +12,11 @@ function Router() {
         <Route path="/" Component={Home} />
         <Route path="/myoracula" Component={MyOracula} />
         <Route path="/friends" Component={Friends} />
+        <Route path="/auth" Component={Auth} />
         {/* <Route path="/myprofile" component={MyProfile} />
           <Route path="/settings" component={Settings} />
       
-          <Route path="/auth" component={Auth} /> */}
+           */}
       </Routes>
     </BrowserRouter>
   );
