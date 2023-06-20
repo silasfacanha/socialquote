@@ -4,6 +4,7 @@ import Home from "./Home";
 import MyOracula from "./MyOracula";
 import Friends from "./Friends";
 import Auth from "./Auth";
+import MyProfile from "./MyProfile";
 
 function Router() {
   return (
@@ -13,7 +14,8 @@ function Router() {
         <Route path="/myoracula" Component={MyOracula} />
         <Route path="/friends" Component={Friends} />
         <Route path="/auth" Component={Auth} />
-        {/* <Route path="/myprofile" component={MyProfile} />
+        <Route path="/myprofile" Component={MyProfile} />
+        {/* 
           <Route path="/settings" component={Settings} />
       
            */}
