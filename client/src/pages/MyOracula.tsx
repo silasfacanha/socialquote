@@ -11,11 +11,23 @@ const MyOracula = () => {
         alignItems: "center",
       }}
     >
-      <Paper sx={{ display: "flex", justifyContent: "center" }}>
+      <Paper
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
         <Typography> Here are your Oracula!</Typography>
         <Typography> User Oracula</Typography>
       </Paper>
-      <Paper sx={{ display: "flex", justifyContent: "center" }}>
+      <Paper
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
         <Typography> Here are your Quotes!</Typography>
         <Typography> User Quotes</Typography>
       </Paper>
