@@ -14,6 +14,7 @@ const Settings = () => {
         <Typography>Password</Typography>
        <TextField/>
         </div>
+        
     </Container>
   )
 }
