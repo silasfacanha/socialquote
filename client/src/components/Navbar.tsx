@@ -8,21 +8,21 @@ const Navbar = () => {
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Container>
           <Typography>
-            <a>Social Quote</a>
+            <Link to="/">Social Quote</Link>
           </Typography>
         </Container>
         <Container sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography>
-            <a>My Oracula </a>
+            <Link to="/myoracula">My Oracula </Link>
           </Typography>
           <Typography>
-            <a>Friends</a>
+            <Link to="/friends">Friends</Link>
           </Typography>
           <Typography>
-            <a>My Profile</a>
+            <Link to="/myprofile">My Profile</Link>
           </Typography>
           <Typography>
-            <a>Settings</a>
+            <Link to="/settings">Settings</Link>
           </Typography>
         </Container>
       </Toolbar>
