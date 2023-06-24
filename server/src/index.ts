@@ -7,13 +7,15 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 app.use(cors());
-// mongoose.connect(
-//  // "mongodb+srv://test:test123@quotesocialcluster.f7vjeth.mongodb.net/",
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   } as any
-// );
+mongoose.connect(
+  "mongodb+srv://testinguser:studyandpracticeit10times@socialquotecluster.w9tdi9w.mongodb.net/",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  } as any
+);
+
+
 
 
 app.listen(port, () => {
