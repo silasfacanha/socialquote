@@ -1,5 +1,5 @@
 import mongoose, { Schema, mongo } from "mongoose";
-import { } from 'mongoose';
+
 export interface IOraculum extends mongoose.Document {
     oraculumName: string;
     oraculumDescription: string;
@@ -7,7 +7,7 @@ export interface IOraculum extends mongoose.Document {
     createdAt: Date;
     savedBy: Schema.Types.ObjectId;
     likes: number;
-    comments: Schema.Types.ObjectId[];
+    
 }
 
 const oraculumSchema :mongoose.Schema = new mongoose.Schema<IOraculum>({
@@ -17,7 +17,7 @@ const oraculumSchema :mongoose.Schema = new mongoose.Schema<IOraculum>({
     createdAt: { type: Date, required: true },
     savedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     likes: { type: Number },
-    comments: [{ type: Schema.Types.ObjectId}]
+ 
 });
 
 const OraculumModel = mongoose.model<IOraculum>("Oraculum", oraculumSchema);
