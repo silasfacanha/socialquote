@@ -5,6 +5,7 @@ import {userRouter} from "./routes/userRouter";
 import {quoteRouter} from "./routes/quoteRouter";
 import { oraculumRouter } from "./routes/oraculumRouter";
 import { postRouter } from "./routes/postRouter";
+import { commentRouter } from "./routes/commentRouter";
 
 const app = express();
 const port = 3000;
@@ -21,12 +22,7 @@ app.use("/user", userRouter);
 app.use("/quote", quoteRouter);
 app.use("/oraculum", oraculumRouter)
 app.use("/post", postRouter)
-
-
-
-
-
-
+app.use("/comment", commentRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
