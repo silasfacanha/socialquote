@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-
+import {userRouter} from "./routes/userRouter";
+import {quoteRouter} from "./routes/quoteRouter";
 
 const app = express();
 const port = 3000;
@@ -14,6 +15,11 @@ mongoose.connect(
     useUnifiedTopology: true,
   } as any
 );
+app.use("/user", userRouter);
+app.use("/quote", quoteRouter);
+
+
+
 
 
 

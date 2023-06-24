@@ -2,11 +2,8 @@ import { Router} from "express";
 import express from "express";
 import { Model } from "mongoose";
 import UserModel from "../db/UserModel";
-
-
-
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const router = express.Router();
 //create, delete, update the name of the user.
@@ -42,7 +39,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.put("/update", async (req, res) => {    
+router.put("/", async (req, res) => {    
 const userId = req.body.userId;
 const updateName = { name: req.body.name };
 
@@ -56,7 +53,7 @@ const updateName = { name: req.body.name };
   }
 });
 
-router.delete("/delete", async(req, res) => {
+router.delete("/", async(req, res) => {
   const userId = req.body.userId;
 
   try {
