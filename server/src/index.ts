@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import {userRouter} from "./routes/userRouter";
 import {quoteRouter} from "./routes/quoteRouter";
+import { oraculumRouter } from "./routes/oraculumRouter";
 
 const app = express();
 const port = 3000;
@@ -17,6 +18,8 @@ mongoose.connect(
 );
 app.use("/user", userRouter);
 app.use("/quote", quoteRouter);
+app.use("/oraculum", oraculumRouter)
+
 
 
 

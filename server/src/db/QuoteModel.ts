@@ -1,14 +1,15 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
-export interface IQoute extends mongoose.Document {
+export interface IQuote extends mongoose.Document {
     quoteText: string;
     quoteAuthor: string;
     quoteSource: string;
     quoteYear: number;
     createdAt: Date;
+    savedBy: mongoose.Types.ObjectId;
 }
 
-const quoteSchema= new mongoose.Schema<IQoute>({
+const quoteSchema :mongoose.Schema = new mongoose.Schema<IQuote>({
     quoteText: { type: String, required: true },
     quoteAuthor: { type: String, required: true },
     quoteSource: { type: String, required: true },
@@ -16,6 +17,6 @@ const quoteSchema= new mongoose.Schema<IQoute>({
     createdAt: { type: Date, required: true }
 });
 
-const QuoteModel = mongoose.model<IQoute>("Quote", quoteSchema);
+const QuoteModel = mongoose.model<IQuote>("Quote", quoteSchema);
 
 export default QuoteModel;

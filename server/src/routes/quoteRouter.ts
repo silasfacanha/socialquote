@@ -4,9 +4,10 @@ import QuoteModel from "../db/QuoteModel";
 const router = express.Router();
 
 
-router.get("/", async (req, res) => {   
+router.get("/", async (req, res) => {  
+    const userId = window.localStorage.getItem("userId"); 
     try {
-        const quotes = await QuoteModel.find();
+       const quotes = await QuoteModel.find({ savedBy: userId });
         res.status(200).json(quotes);
     } catch (error) {
         console.log(error);
@@ -22,6 +23,7 @@ router.post("/", async (req, res) => {
         quoteSource: req.body.quoteSource,
         quoteYear: req.body.quoteYear,
         createdAt: Date.now(),
+        savedBy: req.body.savedBy,
     });
     try {
         const savedQuote = await newQuote.save();
