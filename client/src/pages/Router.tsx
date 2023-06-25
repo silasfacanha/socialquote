@@ -17,10 +17,6 @@ function Router() {
         <Route path="/auth" Component={Auth} />
         <Route path="/settings" Component={Settings} />
         <Route path="/myprofile" Component={MyProfile} />
-        {/* 
-         
-      
-           */}
       </Routes>
    
   );
