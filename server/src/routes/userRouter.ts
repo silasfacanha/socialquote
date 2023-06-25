@@ -1,12 +1,9 @@
-
 import express from "express";
 import UserModel from "../db/UserModel";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import cookieParser from "cookie-parser";
 
 const router = express.Router();
-//create, delete, update the name of the user.
 
 router.get("/", async (req, res) => {
   try {
@@ -39,10 +36,9 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.put("/", async (req, res) => {    
-const userId = req.body.userId;
-const updateName = { name: req.body.name };
-
+router.put("/", async (req, res) => {
+  const userId = req.body.userId;
+  const updateName = { name: req.body.name };
 
   try {
     const updatedUser = await UserModel.findByIdAndUpdate(userId, updateName);
@@ -53,7 +49,7 @@ const updateName = { name: req.body.name };
   }
 });
 
-router.delete("/", async(req, res) => {
+router.delete("/", async (req, res) => {
   const userId = req.body.userId;
 
   try {
@@ -76,21 +72,11 @@ router.post("/login", async (req, res) => {
   const match = await bcrypt.compare(req.body.password, existingUser.password);
   if (req.body.name === existingUser.name && match) {
     const token = jwt.sign({ name: existingUser.name }, "secret");
-    res.cookie("token", token, { httpOnly: true });
-    
-
-    return res.status(200).json({ message: "User logged in successfully" });
+    console.log(token);
+    return res.status(200).json({ token, userId: existingUser._id });
   } else {
     return res.status(401).json({ message: "Invalid Credentials" });
   }
 });
 
 export { router as userRouter };
-
-
-
-
-
-
-
-
