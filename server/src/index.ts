@@ -6,6 +6,7 @@ import {quoteRouter} from "./routes/quoteRouter";
 import { oraculumRouter } from "./routes/oraculumRouter";
 import { postRouter } from "./routes/postRouter";
 import { commentRouter } from "./routes/commentRouter";
+import cookieParser from "cookie-parser";
 
 const app = express();
 const port = 3000;
@@ -18,6 +19,7 @@ mongoose.connect(
     useUnifiedTopology: true,
   } as any
 );
+// app.use(cookieParser());
 app.use("/user", userRouter);
 app.use("/quote", quoteRouter);
 app.use("/oraculum", oraculumRouter)
@@ -27,3 +29,5 @@ app.use("/comment", commentRouter)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+

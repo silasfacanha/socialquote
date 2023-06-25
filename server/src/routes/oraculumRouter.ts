@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
     createdAt: Date.now(),
     savedBy: req.body.savedBy,
     likes: req.body.likes,
-    comments: req.body.comments,
+    
 
 
     });
@@ -69,7 +69,7 @@ router.put("/", async (req, res) => {
         createdAt: Date.now(),
         savedBy: req.body.savedBy,
         likes: req.body.likes,
-        comments: req.body.comments,
+        
     };
     try {
         const updatedOraculum = await OraculumModel.findByIdAndUpdate(
