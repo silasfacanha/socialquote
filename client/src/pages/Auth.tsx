@@ -1,32 +1,21 @@
 import { Button, Container, Paper, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
-import { useQuery, useMutation } from "@tanstack/react-query";
-import { getUsers, loginUser, registerUser } from "../services/userService";
+import React, { useContext, useState } from "react";
+import { getUsers, registerUser } from "../services/userService";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthProvider";
+import { useAuth } from "../context/AuthProvider";
 
 const Auth = () => {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [_, setCookies] = useCookies(["access_token"]);
-
   const navigate = useNavigate();
+  const { login, logout, cookies } = useAuth();
 
-  const loginQueryMutation = useMutation(
-    () => loginUser(loginUsername, loginPassword),
-    {
-      onSuccess: (data) => {
-        setCookies("access_token", data.data.token);
-        const idToStore = data.data.userId;
-        window.localStorage.setItem("userID", idToStore);
-        navigate("/");
-      },
-    }
-  );
   const handleLoginSubmit = () => {
-    loginQueryMutation.mutate();
+    login(loginUsername, loginPassword);
   };
 
   return (
@@ -39,7 +28,11 @@ const Auth = () => {
       }}
     >
       <Paper
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
       >
         <Typography>Register</Typography>
         <TextField
@@ -64,7 +57,11 @@ const Auth = () => {
         </Button>
       </Paper>
       <Paper
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
       >
         <Typography>Login </Typography>
         <TextField
