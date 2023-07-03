@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getUsers = async () => {
   const response = await axios.get("http://localhost:3000/user");
-  console.log(response.data);
+  return response.data;
 };
 
 export const registerUser = async (name: string, password: string) => {

@@ -11,7 +11,6 @@ const Auth = () => {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const navigate = useNavigate();
   const { login, logout, cookies } = useAuth();
 
   const handleLoginSubmit = () => {
