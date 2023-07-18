@@ -16,6 +16,8 @@ export const registerUser = async (name: string, password: string) => {
   console.log(registeringUser.data);
 };
 
+
+
 export const updateUser = async (userId: string, name: string) => {
   const updatingUser = await axios.put("http://localhost:3000/user", {
     userId: localStorage.getItem("userId"),

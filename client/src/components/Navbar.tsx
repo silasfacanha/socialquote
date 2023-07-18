@@ -1,6 +1,8 @@
 import { Toolbar, AppBar, Typography, Container } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import LogoutButton from "../features/LogoutButton";
+import getToken from "../hooks/getToken";
 
 const Navbar = () => {
   return (
@@ -11,20 +13,26 @@ const Navbar = () => {
             <Link to="/">Social Quote</Link>
           </Typography>
         </Container>
-        <Container sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography>
-            <Link to="/myoracula">My Oracula </Link>
-          </Typography>
-          <Typography>
-            <Link to="/friends">Friends</Link>
-          </Typography>
-          <Typography>
-            <Link to="/myprofile">My Profile</Link>
-          </Typography>
-          <Typography>
-            <Link to="/settings">Settings</Link>
-          </Typography>
-        </Container>
+        {getToken() ? (
+          <Container sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Typography>
+              <Link to="/myoracula">My Oracula </Link>
+            </Typography>
+            <Typography>
+              <Link to="/friends">Friends</Link>
+            </Typography>
+            <Typography>
+              <Link to="/myprofile">My Profile</Link>
+            </Typography>
+            <Typography>
+              <Link to="/settings">Settings</Link>
+            </Typography>
+            <Typography>
+              {" "}
+              <LogoutButton />{" "}
+            </Typography>
+          </Container>
+        ) : null}
       </Toolbar>
     </AppBar>
   );

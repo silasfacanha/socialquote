@@ -1,16 +1,10 @@
 import { Container, Paper, Typography } from "@mui/material";
 import React from "react";
+import MyOraculaContainer from "../components/ui/MyOracula/MyOraculaContainer";
 
 const MyOracula = () => {
   return (
-    <Container
-      sx={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-      }}
-    >
+    <MyOraculaContainer>
       <Paper
         sx={{
           display: "flex",
@@ -31,7 +25,7 @@ const MyOracula = () => {
         <Typography> Here are your Quotes!</Typography>
         <Typography> User Quotes</Typography>
       </Paper>
-    </Container>
+    </MyOraculaContainer>
   );
 };
 
