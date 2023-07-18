@@ -1,7 +1,11 @@
 import { Container, TextField, Typography } from "@mui/material";
 import React from "react";
+import { getQuotes } from "../services/quoteService";
+import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
+  const { data } = useQuery(["quotes"], getQuotes);
+  console.log(data);
   return (
     <Container sx={{ margin: "10%" }}>
       <TextField
